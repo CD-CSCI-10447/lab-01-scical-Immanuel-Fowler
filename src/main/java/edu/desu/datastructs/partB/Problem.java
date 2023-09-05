@@ -169,7 +169,15 @@ public class Problem {
 
     public static String everyOtherBit(String word) {
 
-        return null;
+        String result = "";
+
+        for(int i = 0; i < word.length(); i++){
+            if(i%2 == 0){
+                result += word.charAt(i);
+            }
+        }
+
+        return result;
     }
 
 
@@ -184,8 +192,13 @@ public class Problem {
      */
 
     public static Integer favoriteNine(int[] nums) {
-
-        return null;
+        int count = 0;
+        for(int i = 0; i < nums.length; i++){
+            if(nums[i] == 9){
+                count ++;
+            }
+        }
+        return count;
     }
 
 
@@ -201,8 +214,15 @@ public class Problem {
      */
 
     public static Integer amIAMatch(String x, String z) {
+        int count = 0;
 
-        return null;
+        for(int i = 0; i<x.length(); i++){
+            if(x.substring(i, i+1).equals(z.substring(i, i+1))){
+                count ++;
+            }
+        }
+        
+        return count;
     }
 
 
