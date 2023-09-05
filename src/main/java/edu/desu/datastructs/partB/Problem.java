@@ -15,8 +15,11 @@ public class Problem {
      */
 
     public static String stringCopies(String word, int n) {
-
-        return null;
+        String result = "";
+        for(int i = 0 ; i < n ; i++){
+            result += word;
+        }
+        return result;
     }
 
 
@@ -32,7 +35,12 @@ public class Problem {
 
     public static Boolean followedX(String str) {
 
-        return null;
+        for(int i = 1; i< str.length(); i++){
+            if(str.charAt(i) == 'x' && str.charAt(i+1) == 'x'){
+                return true;
+            }
+        }
+        return false;
     }
 
 
@@ -50,7 +58,20 @@ public class Problem {
 
     public static Integer subTwo(String str) {
 
-        return null;
+        if (str == null || str.length() < 2) {
+            return 0;
+        }
+        
+        int count = 0;
+
+        for (int i = 1; i < str.length()-1; i++){
+            String sub = str.substring(i - 1, i + 1);
+
+            if (str.indexOf(sub, i + 1) != -1) {
+                count++;
+            }
+        }
+        return count;
     }
 
 
@@ -69,8 +90,17 @@ public class Problem {
      */
 
     public static Boolean basicNumbers123(int[] nums) {
+        int count = 1;
 
-        return null;
+        for(int i = 0; i < nums.length; i++){
+            if(nums[i] == count){
+                count += 1;
+                if(count == 3){
+                    return true;
+                }
+            }
+        }
+        return false;
     }
 
 
