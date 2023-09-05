@@ -20,7 +20,9 @@ public class ScientificCalculator {
     // This method should divide x by y and return the result.
     // Remember to handle the case when y is zero to avoid division by zero.
     public double divide(double x, double y){
-        // TODO: Handle the divide by zero scenario.
+        if(y == 0){
+            throw new ArithmeticException("Denominator Equal To Zero");
+        }
         return (double) x/y;
     }
 
@@ -47,7 +49,9 @@ public class ScientificCalculator {
     // This method should return the natural logarithm (base e) of x.
     // Remember to handle cases where x is negative or zero.
     public double logarithm(double x){
-        // TODO: Handle cases where x is less than or equal to zero.
+        if(x <= 0){
+            throw new ArithmeticException("x = 0");
+        }
         return (double) Math.log(x);
     }
 }
