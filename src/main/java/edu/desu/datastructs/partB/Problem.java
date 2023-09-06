@@ -15,8 +15,11 @@ public class Problem {
      */
 
     public static String stringCopies(String word, int n) {
-
-        return null;
+        String result = "";
+        for(int i = 0 ; i < n ; i++){
+            result += word;
+        }
+        return result;
     }
 
 
@@ -32,7 +35,12 @@ public class Problem {
 
     public static Boolean followedX(String str) {
 
-        return null;
+        for(int i = 1; i< str.length(); i++){
+            if(str.charAt(i) == 'x' && str.charAt(i+1) == 'x'){
+                return true;
+            }
+        }
+        return false;
     }
 
 
@@ -47,10 +55,28 @@ public class Problem {
     subTwo("xaxxaxaxx") --> 1
     sub2("axxxaaxx") --> 2
      */
+    //TODO: problem 3
+
+    /*
+     I wasn't able to understand the prompt
+     */
 
     public static Integer subTwo(String str) {
 
-        return null;
+        if (str == null || str.length() < 2) {
+            return 0;
+        }
+        
+        int count = 0;
+
+        for (int i = 1; i < str.length()-1; i++){
+            String sub = str.substring(i - 1, i + 1);
+
+            if (str.indexOf(sub, i + 1) != -1) {
+                count++;
+            }
+        }
+        return count;
     }
 
 
@@ -69,8 +95,17 @@ public class Problem {
      */
 
     public static Boolean basicNumbers123(int[] nums) {
+        int count = 1;
 
-        return null;
+        for(int i = 0; i < nums.length; i++){
+            if(nums[i] == count){
+                count += 1;
+                if(count == 3){
+                    return true;
+                }
+            }
+        }
+        return false;
     }
 
 
@@ -90,7 +125,15 @@ public class Problem {
 
     public static String scrambleOfLetters(String scramble) {
 
-        return null;
+        char[] charray = scramble.toCharArray();
+        String result = "";
+        for (int i = 0; i < charray.length; i++){
+            if (i == 0 || i == 1 || i == 4 || i == 5 || i == 8 || i == 9){
+                result += charray[i];
+            }
+        }
+        return result;
+    
     }
 
 
@@ -108,7 +151,17 @@ public class Problem {
 
     public static Boolean dontAcceptTriples(int[] score) {
 
-        return null;
+        for (int i = 0; i < score.length; i++) {
+            int j = i + 1;
+            if (j != score.length) {
+                if (score[i] == score[j]){ 
+                    if (score[i + 1] == score[j + 1]) {
+                       return false;
+                    }
+                }
+            }
+        }
+        return true;
     }
 
     /* Problem 07
@@ -121,8 +174,13 @@ public class Problem {
     frontCopies("Abc", 3) --> "AbcAbcAbc"
      */
     public static String frontCopies(String str, int x) {
+        String result = "";
 
-        return null;
+        for(int i = 0; i<x; i++){
+            result += str.substring(0,2);
+        }
+
+        return result;
     }
 
 
@@ -138,7 +196,15 @@ public class Problem {
 
     public static String everyOtherBit(String word) {
 
-        return null;
+        String result = "";
+
+        for(int i = 0; i < word.length(); i++){
+            if(i%2 == 0){
+                result += word.charAt(i);
+            }
+        }
+
+        return result;
     }
 
 
@@ -153,8 +219,13 @@ public class Problem {
      */
 
     public static Integer favoriteNine(int[] nums) {
-
-        return null;
+        int count = 0;
+        for(int i = 0; i < nums.length; i++){
+            if(nums[i] == 9){
+                count ++;
+            }
+        }
+        return count;
     }
 
 
@@ -170,8 +241,15 @@ public class Problem {
      */
 
     public static Integer amIAMatch(String x, String z) {
+        int count = 0;
 
-        return null;
+        for(int i = 0; i<x.length(); i++){
+            if(x.substring(i, i+1).equals(z.substring(i, i+1))){
+                count ++;
+            }
+        }
+        
+        return count;
     }
 
 
@@ -187,8 +265,7 @@ public class Problem {
      */
 
     public static String unluckyYak(String phrase) {
-
-        return null;
+        return phrase.replaceFirst("yak","");
     }
 
 
@@ -207,6 +284,15 @@ public class Problem {
 
     public static Boolean pattern271(int[] nums) {
 
-        return null;
+        for(int i = 0; i<nums.length; i++){
+            try{
+                if(nums[i] == 2 && nums[i+1] == 7 && nums[i+2] == 1){
+                    return true;
+                }
+            }
+            catch(Exception e){}
+        }
+
+        return false;
     }
 }
